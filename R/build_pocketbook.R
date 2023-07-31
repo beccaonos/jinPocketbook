@@ -4,10 +4,6 @@
 #'
 #' @export
 
-if (!requireNamespace("a11ycharts", quietly = TRUE)) {
-  remotes::install_github("moj-analytical-services/a11ycharts")
-}
-
 build_pocketbook <- function() {
 
 read_docx(system.file("templates/jin_pocketbook_template.docx", package = "jinPocketbook")) %>%
