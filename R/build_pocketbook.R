@@ -6,7 +6,7 @@
 
 build_pocketbook <- function() {
 
-read_docx(system.file("templates/jin_pocketbook_template.docx", package = "jinPocketbook")) %>%
+officer::read_docx(system.file("templates/jin_pocketbook_template.docx", package = "jinPocketbook")) %>%
   cover_page() %>%
   contents() %>%
   officer::body_add_break() %>%
