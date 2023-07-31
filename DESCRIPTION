@@ -19,7 +19,8 @@ Imports:
   qrcode,
   grDevices,
   ggplot2,
-  remotes
+  remotes,
+  a11ycharts
 Remotes:
   moj-analytical-services/a11ycharts
 RoxygenNote: 7.1.1
