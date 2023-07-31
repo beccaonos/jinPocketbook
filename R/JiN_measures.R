@@ -110,17 +110,17 @@ JiN_measures <- function(doc, rootpath = "https://data.justice.gov.uk", ext = ""
       officer::body_add_gg(doc,a11ycharts::a11ychart(chart_df,"label","value",
                                 chartdata[[j]]$chartDefs$type,
                                 yscale=chartdata[[j]]$chartDefs$dataType,
-                                breakwidth=NULL)+ggplot2::theme(text = officer::element_text(size = 10)),
+                                breakwidth=NULL)+ggplot2::theme(text = ggplot2::element_text(size = 10)),
                   width=4.2,height=2)
       officer::body_add_par(doc,"",style = "Table Text")
-      officer::body_end_block_section(doc, value =   block_section(
-        prop_section(
+      officer::body_end_block_section(doc, value = officer::block_section(
+        officer::prop_section(
           type = "nextPage"
         )
       ))
       officer::body_add_table(doc,tail(table_df,table_length),
                      style = "Table Grid",alignment = c("l","r"),align_table = "center",
-                     stylenames = table_stylenames(stylenames = list("Table Text" = c("description","value"))),
+                     stylenames = officer::table_stylenames(stylenames = list("Table Text" = c("description","value"))),
                      header=FALSE,
                      first_row = FALSE)
       officer::body_add(doc,officer::fpar(officer::run_columnbreak()))
@@ -143,10 +143,10 @@ JiN_measures <- function(doc, rootpath = "https://data.justice.gov.uk", ext = ""
         prop = officer::fp_text(font.size = 9))))
       officer::slip_in_text(doc, " or use the QR code below:", style = "Description text Char")
     #  officer::body_add_img(doc,"images/QR/QR.png",width=0.5,height=0.5)
-      officer::body_end_block_section(doc, value =   block_section(
-        prop_section(
+      officer::body_end_block_section(doc, value =   officer::block_section(
+        officer::prop_section(
           type = "continuous",
-          section_columns = section_columns(widths = c(1.88, 1.88), space = 0.5, sep = FALSE)
+          section_columns = officer::section_columns(widths = c(1.88, 1.88), space = 0.5, sep = FALSE)
         )
       ))
 
