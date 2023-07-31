@@ -1,0 +1,11 @@
+# .onLoad file for your R package
+
+.onLoad <- function(libname, pkgname) {
+  # Load remotes package
+  if (!requireNamespace("remotes", quietly = TRUE)) {
+    install.packages("remotes")
+  }
+
+  # Install package dependencies
+  remotes::install_deps()
+}
