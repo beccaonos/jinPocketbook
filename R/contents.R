@@ -14,7 +14,7 @@ contents <- function(doc) {
                     officer::fpar(
                       officer::ftext(
                         "The information in this edition of the pocketbook represents the latest information available from ",
-                        prop = fp_text(font.size = 10)
+                        prop = officer::fp_text(font.size = 10)
                         ),
                       officer::hyperlink_ftext(
                         href = "https://data.justice.gov.uk/justice-in-numbers",

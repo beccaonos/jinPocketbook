@@ -135,7 +135,7 @@ JiN_measures <- function(doc, rootpath = "https://data.justice.gov.uk", ext = ""
                              officer::hyperlink_ftext(
                                href = publication$indexUri,
                                text = publication$name,
-                               prop = fp_text(font.size = 9)),
+                               prop = officer::fp_text(font.size = 9)),
                              officer::run_linebreak()))
       officer::body_add(doc,officer::fpar(officer::hyperlink_ftext(
         href = URL,
