@@ -110,7 +110,7 @@ JiN_measures <- function(doc, rootpath = "https://data.justice.gov.uk", ext = ""
       officer::body_add_gg(doc,a11ycharts::a11ychart(chart_df,"label","value",
                                 chartdata[[j]]$chartDefs$type,
                                 yscale=chartdata[[j]]$chartDefs$dataType,
-                                breakwidth=NULL)+ggplot2::theme(text = element_text(size = 10)),
+                                breakwidth=NULL)+ggplot2::theme(text = officer::element_text(size = 10)),
                   width=4.2,height=2)
       officer::body_add_par(doc,"",style = "Table Text")
       officer::body_end_block_section(doc, value =   block_section(
