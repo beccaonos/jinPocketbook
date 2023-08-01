@@ -6,16 +6,20 @@
 
 build_pocketbook <- function() {
 
-officer::read_docx(system.file("templates/jin_pocketbook_template.docx", package = "jinPocketbook")) %>%
-  cover_page() %>%
-  contents() %>%
-  officer::body_add_break() %>%
-  guidance() %>%
-  officer::body_add_break() %>%
-  summary_tables() %>%
-  officer::body_add_break() %>%
-  cjs_flowchart() %>%
-  JiN_measures() %>%
-  print(target=paste0("outputs/JiN_Pocketbook_",Sys.Date(),".docx"))
+  message("Building Pocketbook...", appendLF = FALSE)
+
+  officer::read_docx(system.file("templates/jin_pocketbook_template.docx", package = "jinPocketbook")) %>%
+    cover_page() %>%
+    contents() %>%
+    officer::body_add_break() %>%
+    guidance() %>%
+    officer::body_add_break() %>%
+    summary_tables() %>%
+    officer::body_add_break() %>%
+    cjs_flowchart() %>%
+    JiN_measures() %>%
+    print(target=paste0("outputs/JiN_Pocketbook_",Sys.Date(),".docx"))
+
+  message("done.")
 
 }

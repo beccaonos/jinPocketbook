@@ -17,4 +17,6 @@ cjs_flowchart <- function(doc) {
   Note G:Offenders starting Community Order or Suspended Sentence Order supervision by the Probation Service. Includes Suspended Sentence Orders without requirements.",
                style = "Table Text")
 
+  return(doc)
+
 }

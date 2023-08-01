@@ -23,6 +23,8 @@ JiN_measures <- function(doc, rootpath = "https://data.justice.gov.uk", ext = ""
 
     for (j in 1:length(chartdata)) {
 
+      message(".", appendLF = FALSE)
+
       jin_root <- jindata$children[[i]]$children[sapply(jindata$children[[i]]$children,
                                                         function(x){x$id == chartdata[[j]]$id})][[1]]
 

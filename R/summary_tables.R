@@ -31,6 +31,8 @@ summary_tables <- function(doc, rootpath = "https://data.justice.gov.uk", ext = 
 
     for (j in 1:length(chartdata)) {
 
+      message(".", appendLF = FALSE)
+
       jin_root <- jindata$children[[i]]$children[sapply(jindata$children[[i]]$children,
                                                         function(x){x$id == chartdata[[j]]$id})][[1]]
 
@@ -51,12 +53,14 @@ summary_tables <- function(doc, rootpath = "https://data.justice.gov.uk", ext = 
         table_df <- dplyr::bind_cols(description = unlist(chartdata[[j]]$descriptions[valid]),
                                      value = unlist(chartdata[[j]]$formattedValues[valid]))
 
-        summaryrow <- dplyr::bind_cols(chartdata[[j]]$name,
+        make_summaryrow <- function() { dplyr::bind_cols(chartdata[[j]]$name,
                                        tail(table_df,1),
                                        tail(table_df,2)[1,],
                                        child_date,
                                        publication$currentPublishDate,
-                                       publication$nextPublishDate)
+                                       publication$nextPublishDate) }
+
+        summaryrow <- suppressMessages(make_summaryrow())
 
         if (rowcount==0) {
           summarytable <- summaryrow
