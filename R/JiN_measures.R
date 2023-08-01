@@ -69,7 +69,7 @@ JiN_measures <- function(doc, rootpath = "https://data.justice.gov.uk", ext = ""
 
       URL <- paste0("https://data.justice.gov.uk",chartdata[[j]]$relativeUrl)
 
-      QRpath <- capturePlot(
+      QRpath <- htmltools::capturePlot(
         qrcode::qrcode_gen(URL),
         tempfile(fileext = ".png"),
         grDevices::png
