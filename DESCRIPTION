@@ -22,6 +22,8 @@ Imports:
   a11ycharts,
   htmltools,
   Rs3tools
+Depends:
+  qrcode
 Remotes:
   moj-analytical-services/a11ycharts,
   moj-analytical-services/Rs3tools

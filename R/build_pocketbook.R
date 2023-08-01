@@ -29,11 +29,11 @@ build_pocketbook <- function(rootpath = "https://data.justice.gov.uk",
       docpath <- print(doc,target=tempfile(fileext = ".docx"))
 
       Rs3tools::write_file_to_s3(docpath,
-                                 paste0(target,"/JiN_Pocketbook_",Sys.Date(),".docx"),
+                                 paste0(targetpath,"/JiN_Pocketbook_",Sys.Date(),".docx"),
                                  overwrite =TRUE)
   } else {
 
-      print(doc,target=paste0(target,"/JiN_Pocketbook_",Sys.Date(),".docx"))
+      print(doc,target=paste0(targetpath,"/JiN_Pocketbook_",Sys.Date(),".docx"))
 
   }
 
