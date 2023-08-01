@@ -23,6 +23,6 @@ Imports:
   htmltools,
   Rs3tools
 Remotes:
-  moj-analytical-services/a11ycharts
+  moj-analytical-services/a11ycharts,
   moj-analytical-services/Rs3tools
 RoxygenNote: 7.1.1
