@@ -69,9 +69,11 @@ JiN_measures <- function(doc, rootpath = "https://data.justice.gov.uk", ext = ""
 
       URL <- paste0("https://data.justice.gov.uk",chartdata[[j]]$relativeUrl)
 
-   #   grDevices::png("images/QR/QR.png")
-  #    qrcode::qrcode_gen(URL)
-  #    grDevices::dev.off()
+      QRpath <- capturePlot(
+        qrcode::qrcode_gen(URL),
+        tempfile(fileext = ".png"),
+        grDevices::png
+      )
 
       latest_figure <- tail(table_df,1)[,2]
       latest_period <- tail(chart_df,1)[,1]
@@ -142,7 +144,7 @@ JiN_measures <- function(doc, rootpath = "https://data.justice.gov.uk", ext = ""
         text = "Click here to view on Justice Data",
         prop = officer::fp_text(font.size = 9))))
       officer::slip_in_text(doc, " or use the QR code below:", style = "Description text Char")
-    #  officer::body_add_img(doc,"images/QR/QR.png",width=0.5,height=0.5)
+      officer::body_add_img(doc,QRpath,width=0.5,height=0.5)
       officer::body_end_block_section(doc, value =   officer::block_section(
         officer::prop_section(
           type = "continuous",
