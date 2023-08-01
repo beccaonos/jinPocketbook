@@ -4,22 +4,37 @@
 #'
 #' @export
 
-build_pocketbook <- function() {
+build_pocketbook <- function(rootpath = "https://data.justice.gov.uk",
+                             ext = "",
+                             targetpath = "alpha-jin-pocketbook/Pocketbook",
+                             S3target = TRUE) {
 
   message("Building Pocketbook...", appendLF = FALSE)
 
-  officer::read_docx(system.file("templates/jin_pocketbook_template.docx", package = "jinPocketbook")) %>%
-    cover_page() %>%
-    contents() %>%
-    officer::body_add_break() %>%
-    guidance() %>%
-    officer::body_add_break() %>%
-    summary_tables() %>%
-    officer::body_add_break() %>%
-    cjs_flowchart() %>%
-    JiN_measures() %>%
-    print(target=paste0("outputs/JiN_Pocketbook_",Sys.Date(),".docx"))
+  doc <- officer::read_docx(system.file("templates/jin_pocketbook_template.docx", package = "jinPocketbook")) %>%
+            cover_page() %>%
+            contents() %>%
+            officer::body_add_break() %>%
+            guidance() %>%
+            officer::body_add_break() %>%
+            summary_tables() %>%
+            officer::body_add_break() %>%
+            cjs_flowchart() %>%
+            JiN_measures()
 
   message("done.")
+
+  if (S3target == TRUE) {
+
+      docpath <- print(doc,target=tempfile(fileext = ".docx"))
+
+      Rs3tools::write_file_to_s3(docpath,
+                                 paste0(target,"/JiN_Pocketbook_",Sys.Date(),".docx"),
+                                 overwrite =TRUE)
+  } else {
+
+      print(doc,target=paste0(target,"/JiN_Pocketbook_",Sys.Date(),".docx"))
+
+  }
 
 }
