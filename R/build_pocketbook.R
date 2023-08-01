@@ -23,6 +23,7 @@ build_pocketbook <- function(rootpath = "https://data.justice.gov.uk",
             JiN_measures()
 
   message("done.")
+  message("Saving file...")
 
   if (S3target == TRUE) {
 

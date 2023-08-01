@@ -9,6 +9,13 @@
     ]
   },
   "Packages": {
+    "BH": {
+      "Package": "BH",
+      "Version": "1.75.0-0",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "e4c04affc2cac20c8fec18385cd14691"
+    },
     "MASS": {
       "Package": "MASS",
       "Version": "7.3-53.1",
@@ -58,6 +65,18 @@
       "Repository": "RSPM",
       "Hash": "e031418365a7f7a766181ab5a41a5716"
     },
+    "Rs3tools": {
+      "Package": "Rs3tools",
+      "Version": "0.4.4",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "moj-analytical-services",
+      "RemoteRepo": "Rs3tools",
+      "RemoteRef": "main",
+      "RemoteSha": "1a9492152cecb02ed9abd46d258db35b4492cc8d",
+      "Hash": "3601d6fbe42296dafc544bfcdf8be0ad"
+    },
     "a11ycharts": {
       "Package": "a11ycharts",
       "Version": "0.1.0",
@@ -92,12 +111,26 @@
       "Repository": "RSPM",
       "Hash": "a94ba44cee3ea571e813721e64184172"
     },
+    "clipr": {
+      "Package": "clipr",
+      "Version": "0.7.1",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "ebaa97ac99cc2daf04e77eecc7b781d7"
+    },
     "colorspace": {
       "Package": "colorspace",
       "Version": "2.0-1",
       "Source": "Repository",
       "Repository": "RSPM",
       "Hash": "6cab523af06ac301e7a40c5529d45882"
+    },
+    "cpp11": {
+      "Package": "cpp11",
+      "Version": "0.2.7",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "730eebcc741a5c36761f7d4d0f5e37b8"
     },
     "crayon": {
       "Package": "crayon",
@@ -148,6 +181,13 @@
       "Repository": "RSPM",
       "Hash": "c98eb5133d9cb9e1622b8691487f11bb"
     },
+    "gdata": {
+      "Package": "gdata",
+      "Version": "2.18.0",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "465ccb84427f5fe2c54f8620666db131"
+    },
     "generics": {
       "Package": "generics",
       "Version": "0.1.0",
@@ -175,6 +215,20 @@
       "Source": "Repository",
       "Repository": "RSPM",
       "Hash": "ac5c6baf7822ce8732b343f14c072c4d"
+    },
+    "gtools": {
+      "Package": "gtools",
+      "Version": "3.8.2",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "0a749b4458d19a54acae93c64e3e7c85"
+    },
+    "hms": {
+      "Package": "hms",
+      "Version": "1.0.0",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "bf552cdd96f5969873afdac7311c7d0d"
     },
     "htmltools": {
       "Package": "htmltools",
@@ -274,6 +328,97 @@
       "Repository": "RSPM",
       "Hash": "f4dbc5a47fd93d3415249884d31d6791"
     },
+    "paws": {
+      "Package": "paws",
+      "Version": "0.1.11",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "cec12e707388b40a0109c6e89b866176"
+    },
+    "paws.analytics": {
+      "Package": "paws.analytics",
+      "Version": "0.1.11",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "b27a7fab001c13d69cce406315f991c1"
+    },
+    "paws.application.integration": {
+      "Package": "paws.application.integration",
+      "Version": "0.1.11",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "15be816c36116393eff157fe061cb564"
+    },
+    "paws.common": {
+      "Package": "paws.common",
+      "Version": "0.3.10",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "38cceefa81f793ca194e90f28c0bf804"
+    },
+    "paws.compute": {
+      "Package": "paws.compute",
+      "Version": "0.1.11",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "421a8a6138b5707842d49c6b47cf48d8"
+    },
+    "paws.cost.management": {
+      "Package": "paws.cost.management",
+      "Version": "0.1.11",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "37d8fd15437c3e41cbeaa826860b1452"
+    },
+    "paws.customer.engagement": {
+      "Package": "paws.customer.engagement",
+      "Version": "0.1.11",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "b2f091502ec3a74caba2628bfbc5aba1"
+    },
+    "paws.database": {
+      "Package": "paws.database",
+      "Version": "0.1.11",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "27c9d75627046976c89f4a43279b5078"
+    },
+    "paws.machine.learning": {
+      "Package": "paws.machine.learning",
+      "Version": "0.1.11",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "27fbc04572e5a74200c75ebf7a1ca5b3"
+    },
+    "paws.management": {
+      "Package": "paws.management",
+      "Version": "0.1.11",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "85b61065160322f6729269cb59bd434e"
+    },
+    "paws.networking": {
+      "Package": "paws.networking",
+      "Version": "0.1.11",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "603472424ac4c5244abba09728bd15e5"
+    },
+    "paws.security.identity": {
+      "Package": "paws.security.identity",
+      "Version": "0.1.11",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "d4d9f0ac7e665888c12d799421fcf345"
+    },
+    "paws.storage": {
+      "Package": "paws.storage",
+      "Version": "0.1.11",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "d0a0428696cdc8099e8c93d2257b21f2"
+    },
     "pillar": {
       "Package": "pillar",
       "Version": "1.6.1",
@@ -301,6 +446,13 @@
       "Source": "Repository",
       "Repository": "RSPM",
       "Hash": "6e66da66a692c829ab34b3586989bb44"
+    },
+    "readr": {
+      "Package": "readr",
+      "Version": "1.4.0",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "2639976851f71f330264a9c9c3d43a61"
     },
     "renv": {
       "Package": "renv",
