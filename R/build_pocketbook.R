@@ -46,6 +46,8 @@ build_pocketbook <- function(rootpath = "https://data.justice.gov.uk",
 
   if (change_check == TRUE) {
 
+    message("Checking whether file has changed...")
+
     bucket_files <- Rs3tools::list_files_in_buckets(
       stringr::str_split(targetpath,"/", simplify = TRUE)[1])
 
