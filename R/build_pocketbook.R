@@ -72,7 +72,7 @@ build_pocketbook <- function(rootpath = "https://data.justice.gov.uk",
   # Check if change_check is TRUE and handle accordingly
   if (change_check == TRUE) {
 
-    message("Checking whether file has changed...")
+    message("Checking whether file has changed (this can take a while)...", appendLF = FALSE)
 
     # Get the list of files in the target S3 bucket
     bucket_files <- Rs3tools::list_files_in_buckets(
@@ -83,9 +83,13 @@ build_pocketbook <- function(rootpath = "https://data.justice.gov.uk",
     # Download the latest version of the pocketbook from S3
     Rs3tools::download_file_from_s3(max(bucket_files$path), temp, overwrite = TRUE)
 
+    message("...", appendLF = FALSE)
+
     # Read the old and new pocketbook summaries
     old_doc <- officer::read_docx(temp) %>%
       officer::docx_summary()
+
+    message("...")
 
     new_doc <- officer::docx_summary(doc)
 
