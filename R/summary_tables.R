@@ -23,6 +23,8 @@ summary_tables <- function(doc, rootpath = "https://data.justice.gov.uk", ext = 
   # Loop through each section of Justice in Numbers to add the table
   for (i in 1:length(jindata$children)) {
 
+    message("...", appendLF = FALSE)
+
     # Read chart data for the current section from the API
     chartdata <- jsonlite::read_json(paste0(rootpath, jindata$children[[i]]$apiUrl, "/chartdata", ext))
 
@@ -34,8 +36,6 @@ summary_tables <- function(doc, rootpath = "https://data.justice.gov.uk", ext = 
     rowcount <- 0
 
     for (j in 1:length(chartdata)) {
-
-      message(".", appendLF = FALSE)
 
       # Get the root data for the current chart
       jin_root <- jindata$children[[i]]$children[sapply(jindata$children[[i]]$children,

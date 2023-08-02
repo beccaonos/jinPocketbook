@@ -20,6 +20,8 @@ JiN_measures <- function(doc, rootpath = "https://data.justice.gov.uk", ext = ""
   # Loop through each section of Justice in Numbers data
   for (i in 1:length(jindata$children)) {
 
+    message("...", appendLF = FALSE)
+
     # Get the name of the current section
     section_name <- jindata$children[[i]]$name
 
@@ -31,8 +33,6 @@ JiN_measures <- function(doc, rootpath = "https://data.justice.gov.uk", ext = ""
 
     # Loop through each chart within the current section
     for (j in 1:length(chartdata)) {
-
-      message(".", appendLF = FALSE)
 
       # Get the root data for the current chart
       jin_root <- jindata$children[[i]]$children[sapply(jindata$children[[i]]$children,

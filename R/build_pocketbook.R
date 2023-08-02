@@ -46,7 +46,7 @@ build_pocketbook <- function(rootpath = "https://data.justice.gov.uk",
     cjs_flowchart() %>%
     JiN_measures()
 
-  message("done.")
+  message("Done.")
 
   # Define a function to save the generated pocketbook
   jin_save <- function() {
