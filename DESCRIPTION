@@ -1,12 +1,11 @@
 Package: jinPocketbook
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Justice in Numbers Pocketbook R Package
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Phil Hall
+Maintainer: philip.hall@justice.gov.uk
+Description: The Justice in Numbers Pocketbook R package provides a set of functions to build a pocketbook containing charts, tables, and summary information taken from the Justice in Numbers website. Justice in Numbers aims to provide users with easy-to-understand visualizations and insights into various aspects of the justice system in England and Wales.
+License: MIT
 Encoding: UTF-8
 LazyData: true
 Imports:
@@ -27,4 +26,6 @@ Depends:
 Remotes:
   moj-analytical-services/a11ycharts,
   moj-analytical-services/Rs3tools
+URL: https://github.com/moj-analytical-services/jinPocketbook
+BugReports: https://github.com/moj-analytical-services/jinPocketbook/issues
 RoxygenNote: 7.1.1

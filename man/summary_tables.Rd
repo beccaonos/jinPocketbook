@@ -7,15 +7,18 @@
 summary_tables(doc, rootpath = "https://data.justice.gov.uk", ext = "")
 }
 \arguments{
-\item{doc}{A Word document object}
+\item{doc}{A Word document object.}
 
-\item{rootpath}{Root path to the JIN API files (only required if testing on downloaded JSON files)}
+\item{rootpath}{Root path to the JIN API files (default is "https://data.justice.gov.uk". This should only be changed if testing on downloaded JSON files or the location of the API changes).}
 
-\item{ext}{File extenstion for API files (only required if testing on downloaded JSON files)}
+\item{ext}{File extension for API files (default is an empty string. This should only be changed if testing on downloaded JSON files or the format of the API changes).}
 }
 \value{
-The doc object with summary tables added
+The modified doc object with summary tables added.
 }
 \description{
-This function builds the Justice in Numbers Pocketbook Summary Tables Pages.
+This internal function builds the Justice in Numbers Pocketbook Summary Tables Pages.
+}
+\examples{
+# This function is not intended to be called directly by the user.
 }

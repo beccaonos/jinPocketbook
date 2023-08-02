@@ -7,11 +7,14 @@
 cjs_flowchart(doc)
 }
 \arguments{
-\item{doc}{A Word document object}
+\item{doc}{A Word document object to which the flowchart page will be added.}
 }
 \value{
-The doc object with summary tables added
+The modified doc object with the CJS flowchart page added.
 }
 \description{
-This function builds the Justice in Numbers CJS Flowchart Page.
+This internal function builds the Justice in Numbers CJS Flowchart Page.
+}
+\examples{
+# This function is not intended to be called directly by the user.
 }

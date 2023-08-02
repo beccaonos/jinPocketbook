@@ -7,11 +7,14 @@
 cover_page(doc)
 }
 \arguments{
-\item{doc}{A Word document object created by the officer::read_docx() function}
+\item{doc}{A Word document object created by the officer::read_docx() function.}
 }
 \value{
-The doc object with cover text added
+The modified doc object with cover text added.
 }
 \description{
-This function builds the Justice in Numbers Pocketbook Cover Page.
+This internal function builds the Justice in Numbers Pocketbook Cover Page.
+}
+\examples{
+# This function is not intended to be called directly by the user.
 }

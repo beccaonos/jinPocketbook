@@ -7,11 +7,14 @@
 guidance(doc)
 }
 \arguments{
-\item{doc}{A Word document object}
+\item{doc}{A Word document object.}
 }
 \value{
-The doc object with guidance added
+The modified doc object with guidance added.
 }
 \description{
-This function builds the Justice in Numbers Pocketbook Guidance Page.
+This internal function builds the Justice in Numbers Pocketbook Guidance Page.
+}
+\examples{
+# This function is not intended to be called directly by the user.
 }

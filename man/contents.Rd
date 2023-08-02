@@ -7,11 +7,14 @@
 contents(doc)
 }
 \arguments{
-\item{doc}{A Word document object created by the officer::read_docx() function}
+\item{doc}{A Word document object created by the officer::read_docx() function.}
 }
 \value{
-The doc object with table of contents added
+The modified doc object with the table of contents added.
 }
 \description{
-This function builds the Justice in Numbers Pocketbook Contents Page.
+This internal function builds the Justice in Numbers Pocketbook Contents Page.
+}
+\examples{
+# This function is not intended to be called directly by the user.
 }
