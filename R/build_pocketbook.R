@@ -10,6 +10,10 @@ build_pocketbook <- function(rootpath = "https://data.justice.gov.uk",
                              S3target = TRUE,
                              change_check = FALSE) {
 
+  if (S3target == FALSE & change_check == TRUE) {
+    stop("change_check can only be TRUE if S3target = TRUE.")
+  }
+
   message("Building Pocketbook...", appendLF = FALSE)
 
   doc <- officer::read_docx(system.file("templates/jin_pocketbook_template.docx", package = "jinPocketbook")) %>%
