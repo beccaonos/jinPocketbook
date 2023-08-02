@@ -4,7 +4,13 @@
 \alias{build_pocketbook}
 \title{Build the Justice in Numbers Pocketbook}
 \usage{
-build_pocketbook()
+build_pocketbook(
+  rootpath = "https://data.justice.gov.uk",
+  ext = "",
+  targetpath = "alpha-jin-pocketbook/Pocketbook",
+  S3target = TRUE,
+  change_check = FALSE
+)
 }
 \description{
 This function builds the Justice in Numbers Pocketbook
