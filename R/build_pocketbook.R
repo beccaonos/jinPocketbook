@@ -94,7 +94,7 @@ build_pocketbook <- function(rootpath = "https://data.justice.gov.uk",
     new_doc <- officer::docx_summary(doc)
 
     # Compare old and new summaries to check for changes
-    if (isTRUE(all.equal(old_doc, new_doc))) {
+    if (isTRUE(all.equal(old_doc[-c(5,8),], new_doc[-c(5,8),]))) {
 
       message("No changes detected. File will not be updated.")
 
