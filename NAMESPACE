@@ -2,6 +2,4 @@
 
 export("%>%")
 export(build_jin_document)
-export(build_pocketbook)
-export(build_summary_tables)
 importFrom(magrittr,"%>%")

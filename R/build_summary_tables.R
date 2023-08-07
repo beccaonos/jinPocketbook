@@ -9,8 +9,6 @@
 #' @param S3target Logical. If TRUE, the generated document will be saved to S3 (default is TRUE).
 #' @param change_check Logical. If TRUE, the function will check whether the generated document has changed compared to the latest version on S3 and update accordingly (default is FALSE).
 #'
-#' @export
-#'
 #' @examples
 #' # Generate the document and save it to the default location in S3 without checking for changes
 #' build_summary_tables()
