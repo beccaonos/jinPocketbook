@@ -13,9 +13,6 @@
 
 summary_tables <- function(doc, rootpath = "https://data.justice.gov.uk", ext = "") {
 
-  # Add a heading for the whole summary tables section
-  officer::slip_in_text(doc, "Summary Tables", style = "Heading 2 Char")
-
   # Read Justice in Numbers API data and publication data from JSON files
   jindata <- jsonlite::read_json(paste0(rootpath, "/api/justice-in-numbers", ext))
   pubdata <- jsonlite::read_json(paste0(rootpath, "/api/publications", ext))

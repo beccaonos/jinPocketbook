@@ -41,6 +41,7 @@ build_pocketbook <- function(rootpath = "https://data.justice.gov.uk",
     officer::body_add_break() %>%
     guidance() %>%
     officer::body_add_break() %>%
+    officer::slip_in_text("Summary Tables", style = "Heading 2 Char") %>%
     summary_tables() %>%
     officer::body_add_break() %>%
     cjs_flowchart() %>%
