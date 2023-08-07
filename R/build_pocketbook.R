@@ -49,27 +49,6 @@ build_pocketbook <- function(rootpath = "https://data.justice.gov.uk",
 
   message("Done.")
 
-  # Define a function to save the generated pocketbook
-  jin_save <- function() {
-
-    message("Saving file...")
-
-    if (S3target == TRUE) {
-
-      # Save the pocketbook to S3
-      docpath <- print(doc, target = tempfile(fileext = ".docx"))
-      Rs3tools::write_file_to_s3(docpath,
-                                 paste0(targetpath, "/JiN_Pocketbook_", Sys.Date(), ext, ".docx"),
-                                 overwrite = TRUE)
-    } else {
-
-      # Save the pocketbook locally
-      print(doc, target = paste0(targetpath, "/JiN_Pocketbook_", Sys.Date(), ext, ".docx"))
-
-    }
-
-  }
-
   # Check if change_check is TRUE and handle accordingly
   if (change_check == TRUE) {
 
@@ -82,7 +61,10 @@ build_pocketbook <- function(rootpath = "https://data.justice.gov.uk",
     temp <- tempfile(fileext = ".docx")
 
     # Download the latest version of the pocketbook from S3
-    Rs3tools::download_file_from_s3(max(bucket_files$path), temp, overwrite = TRUE)
+    Rs3tools::download_file_from_s3(
+      max(bucket_files$path[stringr::str_starts(bucket_files$path,targetpath)]),
+      temp,
+      overwrite = TRUE)
 
     message("...", appendLF = FALSE)
 
@@ -104,14 +86,20 @@ build_pocketbook <- function(rootpath = "https://data.justice.gov.uk",
       message("Changes detected. New file will be created.")
 
       # Save the new pocketbook
-      jin_save()
+      jin_save(doc,
+               targetpath,
+               S3target,
+               output_type = "pocketbook")
 
     }
 
   } else {
 
     # Save the pocketbook without checking for changes
-    jin_save()
+    jin_save(doc,
+             targetpath,
+             S3target,
+             output_type = "pocketbook")
 
   }
 

@@ -32,34 +32,6 @@ build_summary_tables <- function(rootpath = "https://data.justice.gov.uk",
     stop("change_check can only be TRUE if S3target = TRUE.")
   }
 
-  summary_tables_heading <- function(doc) {
-
-    officer::slip_in_text(doc,
-                          paste0("Justice in Numbers - Summary Tables: ",
-                                 format(Sys.Date(),'%d %B %Y')),
-                          style = "Heading 2 Char")
-
-    officer::body_add(doc,
-                      officer::fpar(officer::ftext("The below tables summarise the latest information presented in Justice in Numbers as at ",prop = officer::fp_text(font.size = 12)),
-                      officer::ftext(format(Sys.Date(),'%d %B %Y'),prop = officer::fp_text(bold=TRUE,font.size = 12)),
-                      officer::ftext(".",prop = officer::fp_text(font.size = 12)),
-                      officer::run_linebreak(),
-                      officer::run_linebreak(),
-                      officer::ftext("Some measures are presented as an annual trend, with data reported at fixed intervals. In some of these cases, more recent intermediate quarterly figures are published which do not align with these annual periods. These are highlighted in the 'Latest published data point' column. The most recent and next publication dates are also listed for each measure. In cases where there is no next publication date listed, this is because a future publication date has not been announced.",prop = officer::fp_text(font.size = 12)),
-                      officer::run_linebreak(),
-                      officer::run_linebreak(),
-                      officer::ftext("For a full explanation of each measure, sources used and full time series please visit ",prop = officer::fp_text(font.size = 12)),
-                      officer::hyperlink_ftext(
-                        href = "https://data.justice.gov.uk/justice-in-numbers",
-                        text = "https://data.justice.gov.uk/justice-in-numbers",
-                        prop = officer::fp_text(font.size = 12))))
-    officer::body_add_par(doc,"")
-
-    return(doc)
-
-  }
-
-
   message("Building Summary Tables...", appendLF = FALSE)
 
   # Generate the Justice in Numbers summary tables using various functions that each create a section of the document
@@ -68,27 +40,6 @@ build_summary_tables <- function(rootpath = "https://data.justice.gov.uk",
     summary_tables()
 
   message("Done.")
-
-  # Define a function to save the generated summary tables
-  jin_save <- function() {
-
-    message("Saving file...")
-
-    if (S3target == TRUE) {
-
-      # Save the summary tables to S3
-      docpath <- print(doc, target = tempfile(fileext = ".docx"))
-      Rs3tools::write_file_to_s3(docpath,
-                                 paste0(targetpath, "/JiN_Summary_Tables_", Sys.Date(), ext, ".docx"),
-                                 overwrite = TRUE)
-    } else {
-
-      # Save the summary tables locally
-      print(doc, target = paste0(targetpath, "/JiN_Summary_Tables_", Sys.Date(), ext, ".docx"))
-
-    }
-
-  }
 
   # Check if change_check is TRUE and handle accordingly
   if (change_check == TRUE) {
@@ -102,7 +53,10 @@ build_summary_tables <- function(rootpath = "https://data.justice.gov.uk",
     temp <- tempfile(fileext = ".docx")
 
     # Download the latest version of the summary tables from S3
-    Rs3tools::download_file_from_s3(max(bucket_files$path), temp, overwrite = TRUE)
+    Rs3tools::download_file_from_s3(
+      max(bucket_files$path[stringr::str_starts(bucket_files$path,targetpath)]),
+      temp,
+      overwrite = TRUE)
 
     message("...", appendLF = FALSE)
 
@@ -124,14 +78,20 @@ build_summary_tables <- function(rootpath = "https://data.justice.gov.uk",
       message("Changes detected. New file will be created.")
 
       # Save the new summary tables
-      jin_save()
+      jin_save(doc,
+               targetpath,
+               S3target,
+               output_type = "summary_tables")
 
     }
 
   } else {
 
     # Save the summary tables without checking for changes
-    jin_save()
+    jin_save(doc,
+             targetpath,
+             S3target,
+             output_type = "summary_tables")
 
   }
 

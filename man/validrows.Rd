@@ -4,17 +4,8 @@
 \alias{validrows}
 \title{Check for Valid Rows in the Chart Data}
 \usage{
-validrows(data)
-}
-\arguments{
-\item{data}{A list representing the chart data.}
-}
-\value{
-A logical vector indicating whether each row in the chart data is valid (TRUE) or not (FALSE).
+validrows(element)
 }
 \description{
-This internal function checks for valid rows in the chart data based on non-missing values in the "data" field.
-}
-\examples{
-# This function is not intended to be called directly by the user.
+This internal function checks for valid rows in the chart data
 }
