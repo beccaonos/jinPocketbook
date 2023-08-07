@@ -8,9 +8,7 @@ You can install the package directly from GitHub using the `devtools` package:
 
 ```R
 # Install devtools if not already installed
-if (!requireNamespace("devtools", quietly = TRUE)) {
-  install.packages("devtools")
-}
+install.packages("devtools")
 
 # Install the Justice in Numbers Pocketbook package from GitHub
 devtools::install_github("moj-analytical-services/jinPocketbook")
@@ -18,25 +16,32 @@ devtools::install_github("moj-analytical-services/jinPocketbook")
 
 ## Getting Started
 
-To get started, load the package and run the main function `build_pocketbook()`. This function will build the Justice in Numbers Pocketbook, check whether it has changed since the last time it was build and saved, and then save it to the default S3 bucket location 'alpha-jin-pocketbook/Pocketbook'.
+To get started, load the package and run the main function `build_jin_document()`. This function will build the Justice in Numbers Pocketbook or Summary Tables, check whether the document has changed since the last time it was build and saved, and then save it to the default S3 bucket location 'alpha-jin-pocketbook'.
 
 ```R
 # Load the Justice in Numbers Pocketbook package
 library(jinPocketbook)
 
 # Build the Justice in Numbers Pocketbook
-build_pocketbook()
+build_jin_document("pocketbook")
+
+# Build the Justice in Numbers Summary Tables
+build_jin_document("summary_tables")
 ```
 
-By default, the `build_pocketbook()` function will fetch the latest data from the Justice in Numbers API online. However, you can also specify the root path and file extension for the API files if you want to test the package using locally downloaded JSON files. 
+By default, the `build_jin_document()` function will fetch the latest data from the Justice in Numbers API online. However, you can also specify the root path and file extension for the API files if you want to test the package using locally downloaded JSON files. 
 
 ## Package Functions
 
 The **Justice in Numbers Pocketbook** package has only one function available to the user:
 
-`build_pocketbook()`: This is the main function that builds the entire Justice in Numbers Pocketbook and saves it. By default it will download data from the Justice in Numbers API, use it to generate the Pocketbook, then save it to the default S3 bucket location with the filename `JiN_Pocketbook_yyyy_mm_dd.docx`, with the date set on the day the package is run. It will overwrite any existing file with the same name.
+**`build_jin_document()`**: This is the main function that builds the entire Justice in Numbers Pocketbook or Summary Tables and saves it. By default it will download data from the Justice in Numbers API, use it to generate the relevant document, then save it to the default S3 bucket location with the filename `JiN_Pocketbook_yyyy_mm_dd.docx` or `JiN_Summary_Tables_yyyy_mm_dd.docx`, with the date set on the day the package is run. It will overwrite any existing file with the same name.
 
-You will generally only want to use defaults, but the function does accept the following arguments, which will generally only be used for testing purposes:
+This function has one required argument:
+
+- `doc_type`: This accepts either the values "pocketbook" or "summary_tables". This instructs the function which of the two Justice in Numbers documents to produce.
+
+Among the other arguments, you will usually only want to use defaults, but the function does accept the following arguments, which will generally only be used for testing purposes:
 
  - `rootpath` (Default is "https://data.justice.gov.uk"): This sets the root where the package will look for the API files. You should only change this if you are carrying out testing on the API and want to download the JSON files manually and run the Pocketbook offline.
 
@@ -50,11 +55,11 @@ You will generally only want to use defaults, but the function does accept the f
 
 ## Additional Notes
 
-- The `build_pocketbook()` function may take some time to run, depending on the data retrieval and processing.
+- The `build_jin_documentk()` function may take some time to run, depending on the data retrieval and processing.
 
-- The package is designed to work with the latest data from the Justice in Numbers website. Make sure to have an internet connection when running the `build_pocketbook()` function.
+- The package is designed to work with the latest data from the Justice in Numbers website. Make sure to have an internet connection when running the `build_jin_document()` function.
 
-- For advanced users, some internal functions are available in the package. However, it is recommended to only use the main function `build_pocketbook()` for building the complete pocketbook.
+- For advanced users, some internal functions are available in the package. However, it is recommended to only use the main function `build_jin_document()` for building the complete pocketbook.
 
 - The pocketbook will be saved as a Word document with a filename reflecting the current date.
 
@@ -64,7 +69,7 @@ Some components of the underlying code are hard-coded. This may need to be chang
 
  - 'Economic costs of crime' is the only measure that does not have trend information and there therefore isn't a trend chart on Justice Data from which to take figures from the API. As a result, this row of the summary table is hard-coded into the file `R/summary_table.R`. Once a trend measure is created within the API, this hard coding will need to be removed and the values will be picked up from the API.
 
- - The script that checks for changes currently ignores two paragraphs which contain the date of publication. This avoids the change check seeing a change in the publication just because it had been run on a different date. These are currently on rows 5 and 8 of the body text summary table generated by the code. If the Pocketbook structure is edited in future so that these paragraphs are moved, this will need updating in `R/build_pocketbook.R`
+ - The script that checks for changes in the Pocketbook file currently ignores two paragraphs which contain the date of publication. This avoids the change check seeing a change in the publication just because it had been run on a different date. These are currently on rows 5 and 8 of the body text summary table generated by the code. If the Pocketbook structure is edited in future so that these paragraphs are moved, this will need updating in `R/build_jin_document.R` 
 
 ## License
 
