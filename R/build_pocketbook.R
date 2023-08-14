@@ -87,7 +87,7 @@ build_pocketbook <- function(rootpath = "https://data.justice.gov.uk",
       jin_save(doc,
                targetpath,
                S3target,
-               output_type = "pocketbook")
+               doc_type = "pocketbook")
 
     }
 
@@ -97,7 +97,7 @@ build_pocketbook <- function(rootpath = "https://data.justice.gov.uk",
     jin_save(doc,
              targetpath,
              S3target,
-             output_type = "pocketbook")
+             doc_type = "pocketbook")
 
   }
 
