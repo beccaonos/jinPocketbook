@@ -9,7 +9,7 @@ License: MIT
 Encoding: UTF-8
 LazyData: true
 Imports:
-  officer (== 0.3.18),
+  officer (<= 0.3.4),
   jsonlite,
   dplyr,
   stringr,
