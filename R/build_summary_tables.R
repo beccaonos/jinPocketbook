@@ -79,7 +79,7 @@ build_summary_tables <- function(rootpath = "https://data.justice.gov.uk",
       jin_save(doc,
                targetpath,
                S3target,
-               doc__type = "summary_tables")
+               doc_type = "summary_tables")
 
     }
 
