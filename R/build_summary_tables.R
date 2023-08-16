@@ -67,7 +67,7 @@ build_summary_tables <- function(rootpath = "https://data.justice.gov.uk",
     new_doc <- officer::docx_summary(doc)
 
     # Compare old and new summaries to check for changes
-    if (isTRUE(all.equal(old_doc[-c(5,8),], new_doc[-c(5,8),]))) {
+    if (isTRUE(all.equal(old_doc[-c(1,2),], new_doc[-c(1,2),]))) {
 
       message("No changes detected. File will not be updated.")
 

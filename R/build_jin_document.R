@@ -38,6 +38,8 @@ build_jin_document <- function(doc_type,
 
     targetpath <- paste0(targetpath,"/Pocketbook")
 
+    daterows <- c(5,8)
+
     message("Building Pocketbook...", appendLF = FALSE)
 
     # Generate the Justice in Numbers pocketbook using various functions that each create a section of the pocketbook
@@ -56,6 +58,8 @@ build_jin_document <- function(doc_type,
   } else if (doc_type == "summary_tables") {
 
     targetpath <- paste0(targetpath,"/Summary")
+
+    daterows <- c(1,2)
 
     message("Building Summary Tables...", appendLF = FALSE)
 
@@ -96,7 +100,7 @@ build_jin_document <- function(doc_type,
     new_doc <- officer::docx_summary(doc)
 
     # Compare old and new summaries to check for changes
-    if (isTRUE(all.equal(old_doc[-c(5,8),], new_doc[-c(5,8),]))) {
+    if (isTRUE(all.equal(old_doc[-daterows,], new_doc[-daterows,]))) {
 
       message("No changes detected. File will not be updated.")
 
