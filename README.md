@@ -36,7 +36,7 @@ By default, the `build_jin_document()` function will fetch the latest data from 
 The package has a dependency on the `officer` package and uses the function `slip_in_text()` which has been deprecated in later versions of the package. See issue [here](https://github.com/moj-analytical-services/jinPocketbook/issues/2#issue-1853095607). Users with later versions of officer may receive an error to this effect. If you receive this error, you will need to roll back your installed version of officer using the below code using `renv`:
 
 ```R
-renv::install("officer@0.3.4", rebuild = TRUE)
+renv::install("officer@0.3.18", rebuild = TRUE)
 ```
 
 ## Package Functions

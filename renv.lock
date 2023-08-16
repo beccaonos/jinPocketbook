@@ -65,13 +65,6 @@
       "Repository": "RSPM",
       "Hash": "e031418365a7f7a766181ab5a41a5716"
     },
-    "Rcpp": {
-      "Package": "Rcpp",
-      "Version": "1.0.6",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "dbb5e436998a7eba5a9d682060533338"
-    },
     "Rs3tools": {
       "Package": "Rs3tools",
       "Version": "0.4.4",
@@ -323,10 +316,10 @@
     },
     "officer": {
       "Package": "officer",
-      "Version": "0.3.4",
+      "Version": "0.3.18",
       "Source": "Repository",
       "Repository": "RSPM",
-      "Hash": "9a33c50eba6639850bbee78a8809c6d1"
+      "Hash": "da173b709a249ee1a0d122000c98cf92"
     },
     "openssl": {
       "Package": "openssl",
