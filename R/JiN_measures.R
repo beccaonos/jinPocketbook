@@ -46,15 +46,20 @@ JiN_measures <- function(doc, rootpath = "https://data.justice.gov.uk", ext = ""
       child_change <- paste(tolower(child_api$trend$trendFromPreviousPeriod),
                             child_api$trend$formattedDelta)
 
-      # Filter out invalid rows from the chart data
-      valid <- validrows(chartdata[[j]]$data)
-
       # Create data frames for chart and table data
-      chart_df <- dplyr::bind_cols(label = unlist(chartdata[[j]]$labels[valid]),
-                                   value = unlist(chartdata[[j]]$data[valid]))
+      chart_df <- dplyr::bind_cols(label = unlist(chartdata[[j]]$labels),
+                                   value = sapply(chartdata[[j]]$data,
+                                                  FUN = function(x) {
+                                                    if (is.null(x)) {x<-0} else {x<-x}
+                                                    })
+                                   )
 
-      table_df <- dplyr::bind_cols(description = unlist(chartdata[[j]]$descriptions[valid]),
-                                   value = unlist(chartdata[[j]]$formattedValues[valid]))
+      table_df <- dplyr::bind_cols(description = unlist(chartdata[[j]]$descriptions),
+                                   value = sapply(chartdata[[j]]$formattedValues,
+                                                  FUN = function(x) {
+                                                    if (is.null(x)) {x<-""} else {x<-x}
+                                                  })
+                                    )
 
       # Process description text for the current chart
       description <- jindata$children[[i]]$children[sapply(jindata$children[[i]]$children,
