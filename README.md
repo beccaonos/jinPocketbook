@@ -31,6 +31,14 @@ build_jin_document("summary_tables")
 
 By default, the `build_jin_document()` function will fetch the latest data from the Justice in Numbers API online. However, you can also specify the root path and file extension for the API files if you want to test the package using locally downloaded JSON files. 
 
+### Deprecated Officer functions
+
+The package has a dependency on the `officer` package and uses the function `slip_in_text()` which has been deprecated in later versions of the package. See issue [here](https://github.com/moj-analytical-services/jinPocketbook/issues/2#issue-1853095607). Users with later versions of officer may receive an error to this effect. If you receive this error, you will need to roll back your installed version of officer using the below code using `renv`:
+
+```R
+renv::install("officer@0.3.4", rebuild = TRUE)
+```
+
 ## Package Functions
 
 The **Justice in Numbers Pocketbook** package has only one function available to the user:
