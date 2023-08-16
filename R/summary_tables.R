@@ -53,12 +53,12 @@ summary_tables <- function(doc, rootpath = "https://data.justice.gov.uk", ext = 
 
       if (chartdata[[j]]$chartDefs$type %in% c("line", "bar")) {
 
-        # Filter out invalid rows from the chart data
-        valid <- validrows(chartdata[[j]]$data)
-
         # Create a data frame for the summary row
-        table_df <- dplyr::bind_cols(description = unlist(chartdata[[j]]$descriptions[valid]),
-                                     value = unlist(chartdata[[j]]$formattedValues[valid]))
+        table_df <- dplyr::bind_cols(description = unlist(chartdata[[j]]$descriptions),
+                                     value = sapply(chartdata[[j]]$formattedValues,
+                                                    FUN = function(x) {
+                                                      if (is.null(x)) {x<-""} else {x<-x}
+                                                    }))
 
         make_summaryrow <- function() {
           dplyr::bind_cols(
