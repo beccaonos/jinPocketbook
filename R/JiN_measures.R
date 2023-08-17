@@ -43,8 +43,11 @@ JiN_measures <- function(doc, rootpath = "https://data.justice.gov.uk", ext = ""
 
       # Extract date and change information for the current chart
       child_date <- child_api$latestPeriodLong
-      child_change <- paste(tolower(child_api$trend$trendFromPreviousPeriod),
-                            child_api$trend$formattedDelta)
+      child_change <- if (is.null(child_api$trend$changeFromPreviousPeriod)) {""}
+                          else {
+                            paste(",",tolower(child_api$trend$trendFromPreviousPeriod),
+                                  child_api$trend$formattedDelta)
+                            }
 
       # Create data frames for chart and table data
       chart_df <- dplyr::bind_cols(label = unlist(chartdata[[j]]$labels),
@@ -99,7 +102,7 @@ JiN_measures <- function(doc, rootpath = "https://data.justice.gov.uk", ext = ""
       # Determine the emphasis text based on whether partial update is available
       if (is.null(child_api$partialUpdate)) {
         emphasis_text <- paste0("The figure for ", latest_period, " is ", latest_figure,
-                                ", ", child_change)
+                                child_change)
       } else {
         update_txt <- child_api$partialUpdate$body %>%
           rvest::read_html() %>%
