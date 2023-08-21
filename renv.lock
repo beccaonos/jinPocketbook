@@ -81,14 +81,14 @@
       "Package": "a11ycharts",
       "Version": "0.1.0",
       "Source": "GitHub",
-      "Remotes": "moj-analytical-services/mojchart",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteRepo": "a11ycharts",
       "RemoteUsername": "moj-analytical-services",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "47d2b6a96ceafe12ff26f0f2a8828ac46a839164",
-      "Hash": "a5dbe243da40129a066a44b30ea3c8f9"
+      "RemoteRepo": "a11ycharts",
+      "RemoteRef": "main",
+      "RemoteSha": "d180ad1e4b6768c43ee13647b3c76c64bc26f890",
+      "Remotes": "moj-analytical-services/mojchart",
+      "Hash": "8c7cc34abb00628755e8f1af3156ebe8"
     },
     "askpass": {
       "Package": "askpass",
@@ -299,6 +299,18 @@
       "Source": "Repository",
       "Repository": "RSPM",
       "Hash": "26fa77e707223e1ce042b2b5d09993dc"
+    },
+    "mojchart": {
+      "Package": "mojchart",
+      "Version": "0.0.0.9001",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "moj-analytical-services",
+      "RemoteRepo": "mojchart",
+      "RemoteRef": "main",
+      "RemoteSha": "7689b17c62ab476ccb0c87db70613aeb0dc4fcf7",
+      "Hash": "8086d3253644402707a65b3179664346"
     },
     "munsell": {
       "Package": "munsell",
