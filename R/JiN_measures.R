@@ -104,10 +104,7 @@ JiN_measures <- function(doc, rootpath = "https://data.justice.gov.uk", ext = ""
         emphasis_text <- paste0("The figure for ", latest_period, " is ", latest_figure,
                                 child_change)
       } else {
-        update_txt <- child_api$partialUpdate$body %>%
-          rvest::read_html() %>%
-          rvest::html_elements("p") %>%
-          rvest::html_text()
+        update_txt <- child_api$partialUpdate$body
 
         emphasis_text <- paste0("Latest published data: ", update_txt)
       }
