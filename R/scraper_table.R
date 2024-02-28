@@ -15,23 +15,23 @@ scraper_table <- function(PAT) {
 
       id <- scraper$PublicationSettings$ConverterDefinitions[[i]]$Measures[[j]]$MeasureID
 
-      SheetName <- coalesce(c(scraper$PublicationSettings$ConverterDefinitions[[i]]$MeasureDefaults$SheetName,scraper$PublicationSettings$ConverterDefinitions[[i]]$Measures[[j]]$SheetName))
+      SheetName <- dplyr::coalesce(c(scraper$PublicationSettings$ConverterDefinitions[[i]]$MeasureDefaults$SheetName,scraper$PublicationSettings$ConverterDefinitions[[i]]$Measures[[j]]$SheetName))
 
 
-      StartColumn <- coalesce(c(scraper$PublicationSettings$ConverterDefinitions[[i]]$MeasureDefaults$StartColumn,scraper$PublicationSettings$ConverterDefinitions[[i]]$Measures[[j]]$StartColumn))
+      StartColumn <- dplyr::coalesce(c(scraper$PublicationSettings$ConverterDefinitions[[i]]$MeasureDefaults$StartColumn,scraper$PublicationSettings$ConverterDefinitions[[i]]$Measures[[j]]$StartColumn))
 
-      EndColumn <- coalesce(c(scraper$PublicationSettings$ConverterDefinitions[[i]]$MeasureDefaults$EndColumn,scraper$PublicationSettings$ConverterDefinitions[[i]]$Measures[[j]]$EndColumn))
+      EndColumn <- dplyr::coalesce(c(scraper$PublicationSettings$ConverterDefinitions[[i]]$MeasureDefaults$EndColumn,scraper$PublicationSettings$ConverterDefinitions[[i]]$Measures[[j]]$EndColumn))
 
-      StartRow <- coalesce(c(scraper$PublicationSettings$ConverterDefinitions[[i]]$MeasureDefaults$StartRow,scraper$PublicationSettings$ConverterDefinitions[[i]]$Measures[[j]]$StartRow))
+      StartRow <- dplyr::coalesce(c(scraper$PublicationSettings$ConverterDefinitions[[i]]$MeasureDefaults$StartRow,scraper$PublicationSettings$ConverterDefinitions[[i]]$Measures[[j]]$StartRow))
 
-      EndRow <- coalesce(c(scraper$PublicationSettings$ConverterDefinitions[[i]]$MeasureDefaults$EndRow,scraper$PublicationSettings$ConverterDefinitions[[i]]$Measures[[j]]$EndRow))
+      EndRow <- dplyr::coalesce(c(scraper$PublicationSettings$ConverterDefinitions[[i]]$MeasureDefaults$EndRow,scraper$PublicationSettings$ConverterDefinitions[[i]]$Measures[[j]]$EndRow))
 
-      newrow <- bind_cols(id,SheetName,StartColumn,EndColumn,StartRow,EndRow)
+      newrow <- dplyr::bind_cols(id,SheetName,StartColumn,EndColumn,StartRow,EndRow)
 
       if (i == 1 & j == 1) {
         table_scraper <- newrow
       } else {
-        table_scraper <- bind_rows(table_scraper,newrow)
+        table_scraper <- dplyr::bind_rows(table_scraper,newrow)
       }
 
     }
