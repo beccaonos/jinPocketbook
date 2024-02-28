@@ -20,7 +20,8 @@ Imports:
   ggplot2,
   a11ycharts,
   htmltools,
-  Rs3tools
+  Rs3tools,
+  curl
 Depends:
   qrcode
 Remotes:
