@@ -21,10 +21,12 @@ Imports:
   a11ycharts,
   htmltools,
   Rs3tools,
-  curl
+  curl,
+  mojchart
 Depends:
   qrcode
 Remotes:
+  moj-analytical-services/mojchart,
   moj-analytical-services/a11ycharts,
   moj-analytical-services/Rs3tools
 URL: https://github.com/moj-analytical-services/jinPocketbook
