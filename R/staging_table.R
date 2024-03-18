@@ -1,7 +1,7 @@
 
-overview_table <- function() {
+staging_table <- function(username,password) {
 
-rootpath <- "https://data.justice.gov.uk"
+rootpath <- "https://staging.data.justice.gov.uk"
 ext <- ""
 
 sections <- c(
@@ -14,7 +14,10 @@ sections <- c(
 
 for (h in 1:length(sections)) {
 
-jindata <- jsonlite::read_json(paste0(rootpath, "/api/",sections[h], ext))
+#jindata <- jsonlite::read_json(paste0(rootpath, "/api/",sections[h], ext))
+
+jin_json <- httr::GET(paste0(rootpath, "/api/",sections[h], ext),httr::authenticate(username,password))
+jindata <- jsonlite::parse_json(rawToChar(jin_json$content))
 
 Level_1 <- jindata$name
 
@@ -29,7 +32,10 @@ Level_1 <- jindata$name
       URL <- paste0("https://data.justice.gov.uk",jindata$children[[i]]$children[[j]]$permalink)
       publicationId <- jindata$children[[i]]$children[[j]]$dataPublicationId
 
-      measure_data <- jsonlite::read_json(paste0(rootpath,jindata$children[[i]]$children[[j]]$apiUrl))
+      #measure_data <- jsonlite::read_json(paste0(rootpath,jindata$children[[i]]$children[[j]]$apiUrl))
+      measure_json <- httr::GET(paste0(rootpath,jindata$children[[i]]$children[[j]]$apiUrl),httr::authenticate(username,password))
+      measure_data <- jsonlite::parse_json(rawToChar(measure_json$content))
+
       measure_df <- dplyr::bind_rows(measure_data$summaryData)
 
       newrow <- dplyr::bind_cols(Level_1,Level_2,name,URL,id,publicationId,measure_df)

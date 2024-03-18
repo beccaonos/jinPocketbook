@@ -22,7 +22,8 @@ Imports:
   htmltools,
   Rs3tools,
   curl,
-  mojchart
+  mojchart,
+  httr
 Depends:
   qrcode
 Remotes:
