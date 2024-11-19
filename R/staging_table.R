@@ -1,7 +1,7 @@
 
 staging_table <- function(username,password) {
 
-rootpath <- "https://staging.data.justice.gov.uk"
+rootpath <- "https://justicedata-staging.apps.live-1.cloud-platform.service.justice.gov.uk/"
 ext <- ""
 
 sections <- c(
@@ -14,10 +14,10 @@ sections <- c(
 
 for (h in 1:length(sections)) {
 
-#jindata <- jsonlite::read_json(paste0(rootpath, "/api/",sections[h], ext))
+jindata <- jsonlite::read_json(paste0(rootpath, "/api/",sections[h], ext))
 
-jin_json <- httr::GET(paste0(rootpath, "/api/",sections[h], ext),httr::authenticate(username,password))
-jindata <- jsonlite::parse_json(rawToChar(jin_json$content))
+#jin_json <- httr::GET(paste0(rootpath, "/api/",sections[h], ext),httr::authenticate(username,password))
+#jindata <- jsonlite::parse_json(rawToChar(jin_json$content))
 
 Level_1 <- jindata$name
 
