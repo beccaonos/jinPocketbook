@@ -1,7 +1,7 @@
 
 staging_table <- function(username,password) {
 
-rootpath <- "https://justicedata-staging.apps.live-1.cloud-platform.service.justice.gov.uk/"
+rootpath <- "https://justicedata-staging.apps.live-1.cloud-platform.service.justice.gov.uk"
 ext <- ""
 
 sections <- c(
