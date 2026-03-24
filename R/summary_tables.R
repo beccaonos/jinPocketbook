@@ -89,7 +89,7 @@ summary_tables <- function(doc, rootpath = "https://data.justice.gov.uk", ext = 
       economic_costs_row <- c(
         "Estimated total cost of crime in England and Wales",
         "2015/16",
-        "£58.9bn", "", "", "", "23 July 2018", ""
+        "\u00A3", "58.9bn", "", "", "", "23 July 2018", ""
       )
 
       summarytable <- rbind(summarytable[1:2, ], economic_costs_row, summarytable[-(1:2), ])
